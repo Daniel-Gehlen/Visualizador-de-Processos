@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizador de Processos</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Visualizador de Processos</h1>
+      <p>Organize e visualize hierarquias de tarefas</p>
+    </header>
+    
+    <div class="file-upload">
+      <button class="file-upload-button" id="file-upload-btn">📁 Carregar Documento de Texto</button>
+      <input type="file" id="file-input" accept=".txt" style="display: none;">
+      <div class="file-preview" id="file-preview" style="display: none;"></div>
+    </div>
+    
+    <div class="controls">
+      <button id="add-problem">➕ Adicionar Processo</button>
+      <button id="build-tree" disabled>🌳 Construir Árvore</button>
+      <button id="download-tree" disabled>📥 Baixar Árvore</button>
+      <button id="clear-all">🗑️ Limpar Tudo</button>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">0%</div>
+      </div>
+    </div>
+    
+    <div class="tree-container">
+      <div class="tree" id="tree">
+        <div class="empty-state">
+          <p>Nenhum processo adicionado ainda.</p>
+          <p>Adicione um processo ou carregue um arquivo para começar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="problem-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Adicionar Processo</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <input type="text" id="problem-title" placeholder="Título do Processo">
+      <textarea id="problem-description" placeholder="Descrição do Processo (opcional)"></textarea>
+      <button id="save-problem">💾 Salvar</button>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="modules/storage-manager.js"></script>
+  <script src="modules/filter-manager.js"></script>
+  <script src="modules/order-manager.js"></script>
+  <script src="modules/priority-calculator.js"></script>
+  <script src="modules/ui-manager.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
